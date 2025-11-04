@@ -1,0 +1,90 @@
+---
+title: 'Smart Contracts'
+description: 'Technical details about Space Rocks smart contracts'
+---
+
+## Contract Architecture
+
+Space Rocks uses a modular smart contract architecture for security and upgradability.
+
+## Main Contracts
+
+### NFT Contract (ERC-721)
+
+**Purpose**: Manages rock NFT minting, transfers, and metadata
+
+**Key Functions**:
+```solidity
+function mint(uint256 rockId, string memory metadata) external
+function burn(uint256 tokenId) external
+function stake(uint256 tokenId) external
+function unstake(uint256 tokenId) external
+```
+
+### Staking Contract
+
+**Purpose**: Handles NFT staking and reward distribution
+
+**Features**:
+- Automatic reward calculation
+- Compound staking option
+- Emergency withdrawal
+- Tiered APY by rarity
+
+### Marketplace Contract
+
+**Purpose**: Facilitates peer-to-peer NFT trading
+
+**Features**:
+- Fixed price listings
+- Auction system
+- Offer mechanism
+- Royalty enforcement
+
+## Security
+
+<CardGroup cols={2}>
+  <Card title="Audited" icon="shield">
+    Audited by CertiK and Hacken
+  </Card>
+  <Card title="Multi-Sig" icon="users">
+    Admin functions require 3/5 signatures
+  </Card>
+  <Card title="Upgradeable" icon="arrow-up">
+    Proxy pattern for safe upgrades
+  </Card>
+  <Card title="Pausable" icon="pause">
+    Emergency pause functionality
+  </Card>
+</CardGroup>
+
+## Contract Addresses
+
+View all contract addresses and verify on blockchain explorers:
+
+<Card
+  title="View on GitHub"
+  icon="github"
+  href="https://github.com/spacerocks/contracts"
+>
+  Access source code and documentation
+</Card>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Developer Docs"
+    icon="code"
+    href="/developers/web3-integration"
+  >
+    Integrate with our contracts
+  </Card>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    API documentation
+  </Card>
+</CardGroup>

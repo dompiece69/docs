@@ -1,0 +1,144 @@
+---
+title: 'Authentication'
+description: 'Authenticate your API requests'
+---
+
+## API Authentication
+
+Space Rocks API uses API keys for authentication. Include your API key in the `Authorization` header of every request.
+
+## Getting an API Key
+
+<Steps>
+  <Step title="Sign In">
+    Visit [developer.spacerocks.game](https://developer.spacerocks.game) and sign in
+  </Step>
+  
+  <Step title="Create Key">
+    Navigate to API Keys section and click "Create New Key"
+  </Step>
+  
+  <Step title="Name Your Key">
+    Give your key a descriptive name (e.g., "Production App", "Development")
+  </Step>
+  
+  <Step title="Copy Key">
+    Copy your API key immediately - it won't be shown again
+  </Step>
+  
+  <Step title="Store Securely">
+    Store your key in environment variables, never in code
+  </Step>
+</Steps>
+
+## Using Your API Key
+
+### Header Authentication
+
+Include your API key in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.spacerocks.game/v1/rocks
+```
+
+### SDK Authentication
+
+When using official SDKs:
+
+<Tabs>
+  <Tab title="JavaScript">
+    ```javascript
+    import SpaceRocks from '@spacerocks/sdk';
+
+    const client = new SpaceRocks({
+      apiKey: process.env.SPACEROCKS_API_KEY
+    });
+    ```
+  </Tab>
+  
+  <Tab title="Python">
+    ```python
+    from spacerocks import SpaceRocksSDK
+    import os
+
+    client = SpaceRocksSDK(
+        api_key=os.environ['SPACEROCKS_API_KEY']
+    )
+    ```
+  </Tab>
+</Tabs>
+
+## Security Best Practices
+
+<Warning>
+  **Important Security Guidelines:**
+  - Never commit API keys to version control
+  - Use environment variables to store keys
+  - Rotate keys regularly
+  - Use different keys for development and production
+  - Revoke compromised keys immediately
+</Warning>
+
+### Environment Variables
+
+Store keys in environment variables:
+
+```bash
+# .env file
+SPACEROCKS_API_KEY=your_api_key_here
+```
+
+```javascript
+// Access in code
+const apiKey = process.env.SPACEROCKS_API_KEY;
+```
+
+## Key Management
+
+### Rotating Keys
+
+Rotate your API keys regularly:
+
+1. Create a new API key
+2. Update your application to use the new key
+3. Test thoroughly
+4. Revoke the old key
+
+### Revoking Keys
+
+Immediately revoke compromised keys:
+
+1. Go to [developer.spacerocks.game](https://developer.spacerocks.game)
+2. Find the compromised key
+3. Click "Revoke"
+4. Create a new key
+
+## Rate Limits
+
+Rate limits are enforced per API key:
+
+| Tier | Requests/Minute | Requests/Day |
+|------|----------------|--------------|
+| Free | 60 | 10,000 |
+| Developer | 300 | 100,000 |
+| Business | 1,000 | 1,000,000 |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="API Introduction"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    Learn API basics
+  </Card>
+  <Card
+    title="Rocks Endpoint"
+    icon="gem"
+    href="/api-reference/endpoints/rocks"
+  >
+    Start making API calls
+  </Card>
+</CardGroup>

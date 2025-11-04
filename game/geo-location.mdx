@@ -1,0 +1,328 @@
+---
+title: 'Geo-Location System'
+description: 'How real-world exploration powers Space Rocks gameplay'
+---
+
+## Overview
+
+Space Rocks uses advanced GPS technology to create a seamless connection between the physical and digital worlds. Rocks spawn at real-world coordinates, encouraging players to explore their surroundings and discover new locations.
+
+## How It Works
+
+### GPS Integration
+
+The game uses your device's GPS to:
+
+- **Track Your Position**: Real-time location updates with 5-10 meter accuracy
+- **Detect Nearby Rocks**: Automatic scanning within a 500-meter radius
+- **Verify Collection**: Ensure you're physically present at rock locations
+- **Record Discovery**: Log unique locations you've visited
+
+<Note>
+  Space Rocks works best with GPS enabled and a clear view of the sky. Indoor locations may have reduced accuracy.
+</Note>
+
+### Privacy & Security
+
+Your privacy is our priority:
+
+<AccordionGroup>
+  <Accordion title="Location Data Usage" icon="shield">
+    - Location data is **only used for gameplay**
+    - No location tracking when app is closed
+    - No selling or sharing of location data
+    - Option to use "fuzzy" location for privacy
+  </Accordion>
+  
+  <Accordion title="Data Storage" icon="database">
+    - Only rock collection coordinates are stored
+    - Personal location history is kept on-device
+    - Server only receives anonymized location data
+    - Full GDPR and CCPA compliance
+  </Accordion>
+  
+  <Accordion title="Permissions" icon="lock">
+    - **Required**: Location access while using app
+    - **Optional**: Background location for notifications
+    - **Optional**: Motion sensors for step tracking
+  </Accordion>
+</AccordionGroup>
+
+## Rock Spawning
+
+### Spawn Mechanics
+
+Rocks appear based on multiple factors:
+
+#### Location Density
+
+Different areas have different spawn rates:
+
+| Location Type | Spawn Rate | Rarity Bonus |
+|--------------|-----------|--------------|
+| Urban Centers | High | +0% |
+| Residential | Medium | +5% |
+| Parks | Medium | +10% |
+| Nature Reserves | Low | +20% |
+| Landmarks | Very Low | +50% |
+| Remote Areas | Rare | +100% |
+
+#### Time-Based Spawning
+
+<Tabs>
+  <Tab title="Daily Cycle">
+    **Morning (6 AM - 12 PM)**
+    - Earth element rocks more common
+    - +10% spawn rate in parks
+    
+    **Afternoon (12 PM - 6 PM)**
+    - Fire element rocks more common
+    - +10% spawn rate in urban areas
+    
+    **Evening (6 PM - 12 AM)**
+    - Air element rocks more common
+    - +10% spawn rate near landmarks
+    
+    **Night (12 AM - 6 AM)**
+    - Cosmic element rocks more common
+    - +20% rare rock chance
+  </Tab>
+  
+  <Tab title="Weekly Events">
+    **Monday**: Water element boost
+    **Tuesday**: Fire element boost
+    **Wednesday**: Earth element boost
+    **Thursday**: Air element boost
+    **Friday**: Cosmic element boost
+    **Weekend**: All elements, +50% legendary chance
+  </Tab>
+  
+  <Tab title="Seasonal">
+    **Spring**: Nature-themed rocks, flower variants
+    **Summer**: Fire-themed rocks, sun variants
+    **Fall**: Earth-themed rocks, leaf variants
+    **Winter**: Water-themed rocks, ice variants
+  </Tab>
+</Tabs>
+
+### Weather Effects
+
+Real-world weather affects rock spawning:
+
+- **☀️ Sunny**: Fire rocks +30%, Water rocks -20%
+- **🌧️ Rainy**: Water rocks +30%, Fire rocks -20%
+- **❄️ Snowy**: Ice variant rocks appear, +50% rare chance
+- **⛈️ Stormy**: Cosmic rocks +50%, special lightning variants
+- **🌫️ Foggy**: Mysterious rocks appear, unknown properties until collected
+
+## Collection Mechanics
+
+### Collection Range
+
+<Warning>
+  You must be within **20 meters** of a rock to collect it. Spoofing or cheating will result in account suspension.
+</Warning>
+
+The collection process:
+
+<Steps>
+  <Step title="Detection">
+    App detects you're within 50 meters of a rock and shows notification
+  </Step>
+  
+  <Step title="Approach">
+    Navigate to within 20 meters using the in-app compass
+  </Step>
+  
+  <Step title="Verification">
+    System verifies your GPS coordinates and movement patterns
+  </Step>
+  
+  <Step title="Collection">
+    Tap the rock to collect it (costs 10 energy)
+  </Step>
+  
+  <Step title="Confirmation">
+    Rock is added to your inventory with timestamp and location data
+  </Step>
+</Steps>
+
+### Anti-Cheat System
+
+Space Rocks employs sophisticated anti-cheat measures:
+
+- **Movement Pattern Analysis**: Detects unnatural movement
+- **Speed Limits**: Flags collections made while traveling too fast
+- **Location Verification**: Cross-references multiple GPS sources
+- **Behavioral Analysis**: Identifies bot-like collection patterns
+
+<Warning>
+  **Penalties for Cheating:**
+  - First offense: 7-day suspension
+  - Second offense: 30-day suspension + forfeit of earnings
+  - Third offense: Permanent ban
+</Warning>
+
+## Location Features
+
+### Points of Interest (POI)
+
+Special locations offer unique benefits:
+
+<CardGroup cols={2}>
+  <Card title="Landmarks" icon="monument">
+    Historic sites and famous locations spawn rare rocks with special attributes
+  </Card>
+  <Card title="Community Hubs" icon="users">
+    Player-designated meeting spots with bonus spawn rates
+  </Card>
+  <Card title="Event Locations" icon="calendar">
+    Temporary locations during special events with exclusive rocks
+  </Card>
+  <Card title="Hidden Gems" icon="eye-slash">
+    Secret locations discovered by exploring off the beaten path
+  </Card>
+</CardGroup>
+
+### Discovery Rewards
+
+First-time location discoveries earn bonus rewards:
+
+- **New City**: 100 coins + 1 Evolution Stone
+- **New Landmark**: 250 coins + 3 Evolution Stones
+- **Hidden Location**: 500 coins + 5 Evolution Stones + Rare Rock
+- **Country Milestone**: Special NFT badge
+
+### Location Badges
+
+Collect badges by visiting specific location types:
+
+| Badge | Requirement | Reward |
+|-------|------------|--------|
+| Urban Explorer | Visit 50 urban locations | +5% urban spawn rate |
+| Nature Lover | Visit 50 nature locations | +5% nature spawn rate |
+| Landmark Hunter | Visit 25 landmarks | +10% legendary chance |
+| World Traveler | Visit 10 countries | Exclusive NFT |
+| Completionist | Visit all location types | +20% all spawn rates |
+
+## Exploration Tools
+
+### In-App Features
+
+<AccordionGroup>
+  <Accordion title="Interactive Map" icon="map">
+    - Real-time rock locations
+    - Filter by rarity and element
+    - Route planning tool
+    - Distance calculator
+    - Saved favorite locations
+  </Accordion>
+  
+  <Accordion title="Compass Mode" icon="compass">
+    - Points to nearest rock
+    - Shows distance in real-time
+    - Vibrates when approaching
+    - AR overlay option
+  </Accordion>
+  
+  <Accordion title="Heatmap" icon="fire">
+    - Shows high-density spawn areas
+    - Historical spawn data
+    - Predicted spawn times
+    - Community-reported hotspots
+  </Accordion>
+  
+  <Accordion title="AR View" icon="camera">
+    - See rocks in augmented reality
+    - Take photos with collected rocks
+    - Share discoveries on social media
+    - Scan environment for hidden rocks
+  </Accordion>
+</AccordionGroup>
+
+### Offline Mode
+
+Limited functionality when offline:
+
+- View previously loaded map data
+- Access inventory and collection
+- Plan routes for later
+- Sync when connection restored
+
+<Note>
+  Collections made offline will sync automatically when you reconnect. Ensure GPS is still enabled for accurate collection verification.
+</Note>
+
+## Community Features
+
+### Shared Discoveries
+
+Players can share rock locations with the community:
+
+- **Public Markers**: Share rare rock locations
+- **Private Groups**: Share with friends only
+- **Timed Shares**: Locations expire after set time
+- **Reputation System**: Earn trust by sharing accurate info
+
+### Collaborative Events
+
+Special events encourage group exploration:
+
+- **Community Raids**: Multiple players collect at same location
+- **Treasure Hunts**: Follow clues to hidden rocks
+- **Territory Control**: Guilds compete for area dominance
+- **Global Challenges**: Worldwide collection goals
+
+## Tips for Effective Exploration
+
+<Tip>
+  **Pro Tips:**
+  - Explore during off-peak hours for less competition
+  - Visit landmarks at night for cosmic rock bonuses
+  - Check weather forecasts to plan element-specific hunts
+  - Join local player groups to discover hidden locations
+  - Use the route planner to maximize energy efficiency
+</Tip>
+
+### Safety Guidelines
+
+Always prioritize safety while exploring:
+
+- ⚠️ Stay aware of your surroundings
+- ⚠️ Don't trespass on private property
+- ⚠️ Follow local laws and regulations
+- ⚠️ Don't play while driving
+- ⚠️ Explore in groups when visiting unfamiliar areas
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Rock Collection"
+    icon="hand"
+    href="/game/rock-collection"
+  >
+    Learn advanced collection strategies
+  </Card>
+  <Card
+    title="Evolution System"
+    icon="arrow-up"
+    href="/game/evolution-system"
+  >
+    Understand how to evolve your rocks
+  </Card>
+  <Card
+    title="Rarity Tiers"
+    icon="star"
+    href="/game/rarity-tiers"
+  >
+    Explore all rarity levels and their benefits
+  </Card>
+  <Card
+    title="How to Play"
+    icon="book"
+    href="/how-to-play"
+  >
+    Return to the main gameplay guide
+  </Card>
+</CardGroup>

@@ -1,0 +1,144 @@
+---
+title: 'Users API'
+description: 'User profiles and inventory management'
+---
+
+## Users Endpoints
+
+The Users API provides access to user profiles, inventory, and statistics.
+
+## Get User Profile
+
+```http
+GET /api/v1/users/:user_id
+```
+
+Get detailed user profile information.
+
+### Response
+
+```json
+{
+  "success": true,
+  "user": {
+    "id": "user_123",
+    "username": "RockCollector",
+    "level": 25,
+    "experience": 125000,
+    "wallet_address": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "stats": {
+      "rocks_collected": 1250,
+      "nfts_minted": 45,
+      "total_earnings": "15000.50",
+      "countries_visited": 5
+    },
+    "created_at": "2025-01-01T00:00:00Z"
+  }
+}
+```
+
+## Get User Inventory
+
+```http
+GET /api/v1/users/:user_id/inventory
+```
+
+Get user's rock inventory.
+
+### Query Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| page | integer | Page number (default: 1) |
+| limit | integer | Items per page (default: 20, max: 100) |
+| rarity | string | Filter by rarity |
+| element | string | Filter by element |
+
+### Response
+
+```json
+{
+  "success": true,
+  "inventory": [
+    {
+      "id": "rock_abc123",
+      "rarity": "rare",
+      "element": "fire",
+      "power": 250,
+      "minted": false,
+      "collected_at": "2025-11-04T12:00:00Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 20,
+    "total": 150,
+    "pages": 8
+  }
+}
+```
+
+## Get User Statistics
+
+```http
+GET /api/v1/users/:user_id/stats
+```
+
+Get detailed user statistics.
+
+### Response
+
+```json
+{
+  "success": true,
+  "stats": {
+    "collection": {
+      "total_rocks": 1250,
+      "by_rarity": {
+        "common": 750,
+        "uncommon": 312,
+        "rare": 125,
+        "epic": 50,
+        "legendary": 12,
+        "mythic": 1
+      },
+      "by_element": {
+        "fire": 250,
+        "water": 250,
+        "earth": 250,
+        "air": 250,
+        "cosmic": 250
+      }
+    },
+    "earnings": {
+      "total": "15000.50",
+      "from_collection": "5000.00",
+      "from_staking": "8000.50",
+      "from_trading": "2000.00"
+    },
+    "achievements": {
+      "unlocked": 45,
+      "total": 100
+    }
+  }
+}
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Rocks API"
+    icon="gem"
+    href="/api-reference/endpoints/rocks"
+  >
+    Rock collection API
+  </Card>
+  <Card
+    title="NFTs API"
+    icon="image"
+    href="/api-reference/endpoints/nfts"
+  >
+    NFT management API
+  </Card>
+</CardGroup>

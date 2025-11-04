@@ -1,68 +1,75 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "dark",
+  "name": "Space Rocks",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#8B5CF6",
+    "light": "#A78BFA",
+    "dark": "#6D28D9"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Game Guide",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "how-to-play"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Game Mechanics",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "game/geo-location",
+              "game/rock-collection",
+              "game/evolution-system",
+              "game/rarity-tiers"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "NFT & Blockchain",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "nft/minting-process",
+              "nft/wallet-integration",
+              "nft/marketplace",
+              "nft/smart-contracts"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Tokenomics",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "tokenomics/overview",
+              "tokenomics/play-and-earn",
+              "tokenomics/meme-coin",
+              "tokenomics/rewards"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Developer Docs",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Integration",
             "pages": [
-              "api-reference/introduction"
+              "development",
+              "developers/mobile-sdk",
+              "developers/web3-integration",
+              "developers/geolocation-api"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "API Reference",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/endpoints/rocks",
+              "api-reference/endpoints/nfts",
+              "api-reference/endpoints/users"
             ]
           }
         ]
@@ -71,14 +78,19 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Play Now",
+          "href": "https://spacerocks.game",
+          "icon": "rocket"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Community",
+          "href": "https://discord.gg/spacerocks",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Marketplace",
+          "href": "https://marketplace.spacerocks.game",
+          "icon": "store"
         }
       ]
     }
@@ -91,13 +103,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@spacerocks.game"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Launch App",
+      "href": "https://app.spacerocks.game"
     }
   },
   "contextual": {
@@ -114,9 +126,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/spacerocksGame",
+      "github": "https://github.com/spacerocks",
+      "discord": "https://discord.gg/spacerocks"
     }
   }
 }

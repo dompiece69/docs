@@ -1,0 +1,117 @@
+---
+title: 'Web3 Integration'
+description: 'Integrate blockchain functionality into your application'
+---
+
+## Web3 Integration Guide
+
+Connect your application to Space Rocks smart contracts and blockchain features.
+
+## Setup
+
+```bash
+npm install @spacerocks/web3-sdk ethers
+```
+
+## Initialize
+
+```javascript
+import { SpaceRocksWeb3 } from '@spacerocks/web3-sdk';
+import { ethers } from 'ethers';
+
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+
+const spaceRocks = new SpaceRocksWeb3({
+  provider,
+  signer,
+  network: 'polygon'
+});
+```
+
+## Smart Contract Interaction
+
+### Mint NFT
+
+```javascript
+// Mint a rock as NFT
+const tx = await spaceRocks.nft.mint({
+  rockId: 'rock_123',
+  metadata: {
+    name: 'Epic Fire Rock',
+    description: 'Collected at Eiffel Tower'
+  }
+});
+
+await tx.wait();
+console.log('NFT minted!', tx.hash);
+```
+
+### Stake NFT
+
+```javascript
+// Stake NFT for rewards
+const tx = await spaceRocks.staking.stake({
+  tokenId: 123,
+  lockPeriod: 30 // days
+});
+
+await tx.wait();
+```
+
+### Trade on Marketplace
+
+```javascript
+// List NFT for sale
+const tx = await spaceRocks.marketplace.list({
+  tokenId: 123,
+  price: ethers.utils.parseEther('10') // 10 tokens
+});
+
+await tx.wait();
+```
+
+## Contract Addresses
+
+<Tabs>
+  <Tab title="Polygon">
+    ```javascript
+    const contracts = {
+      nft: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
+      staking: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+      marketplace: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+      token: '0x1234567890123456789012345678901234567890'
+    };
+    ```
+  </Tab>
+  
+  <Tab title="Base">
+    ```javascript
+    const contracts = {
+      nft: '0x1234567890123456789012345678901234567890',
+      staking: '0x2345678901234567890123456789012345678901',
+      marketplace: '0x3456789012345678901234567890123456789012',
+      token: '0x4567890123456789012345678901234567890123'
+    };
+    ```
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Smart Contracts"
+    icon="file-contract"
+    href="/nft/smart-contracts"
+  >
+    Contract documentation
+  </Card>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    API documentation
+  </Card>
+</CardGroup>

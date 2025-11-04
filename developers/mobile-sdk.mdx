@@ -1,0 +1,146 @@
+---
+title: 'Mobile SDK'
+description: 'Integrate Space Rocks into your mobile application'
+---
+
+## Mobile SDK Overview
+
+The Space Rocks Mobile SDK provides native integration for iOS and Android applications.
+
+## Installation
+
+<Tabs>
+  <Tab title="React Native">
+    ```bash
+    npm install @spacerocks/react-native-sdk
+    # or
+    yarn add @spacerocks/react-native-sdk
+    ```
+  </Tab>
+  
+  <Tab title="iOS (Swift)">
+    ```swift
+    // Add to Podfile
+    pod 'SpaceRocksSDK', '~> 1.0'
+    
+    // Then run
+    pod install
+    ```
+  </Tab>
+  
+  <Tab title="Android (Kotlin)">
+    ```kotlin
+    // Add to build.gradle
+    dependencies {
+        implementation 'com.spacerocks:sdk:1.0.0'
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Initialization
+
+<Tabs>
+  <Tab title="React Native">
+    ```javascript
+    import SpaceRocks from '@spacerocks/react-native-sdk';
+
+    SpaceRocks.initialize({
+      apiKey: 'your_api_key',
+      environment: 'production'
+    });
+    ```
+  </Tab>
+  
+  <Tab title="Swift">
+    ```swift
+    import SpaceRocksSDK
+
+    SpaceRocks.shared.initialize(
+        apiKey: "your_api_key",
+        environment: .production
+    )
+    ```
+  </Tab>
+  
+  <Tab title="Kotlin">
+    ```kotlin
+    import com.spacerocks.sdk.SpaceRocks
+
+    SpaceRocks.initialize(
+        context = this,
+        apiKey = "your_api_key",
+        environment = Environment.PRODUCTION
+    )
+    ```
+  </Tab>
+</Tabs>
+
+## Core Features
+
+### Geolocation
+
+Track user location and find nearby rocks:
+
+```javascript
+// Request location permissions
+await SpaceRocks.requestLocationPermission();
+
+// Get current location
+const location = await SpaceRocks.getCurrentLocation();
+
+// Find nearby rocks
+const rocks = await SpaceRocks.getNearbyRocks({
+  radius: 1000 // meters
+});
+```
+
+### Rock Collection
+
+Handle rock collection:
+
+```javascript
+// Check if user can collect rock
+const canCollect = await SpaceRocks.canCollectRock(rockId);
+
+// Collect rock
+const result = await SpaceRocks.collectRock(rockId);
+
+if (result.success) {
+  console.log('Rock collected!', result.rock);
+}
+```
+
+### NFT Management
+
+Mint and manage NFTs:
+
+```javascript
+// Mint rock as NFT
+const nft = await SpaceRocks.mintNFT({
+  rockId: 'rock_123',
+  blockchain: 'polygon'
+});
+
+// Get user's NFTs
+const nfts = await SpaceRocks.getUserNFTs();
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    Full API documentation
+  </Card>
+  <Card
+    title="Web3 Integration"
+    icon="ethereum"
+    href="/developers/web3-integration"
+  >
+    Blockchain integration
+  </Card>
+</CardGroup>

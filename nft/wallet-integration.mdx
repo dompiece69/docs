@@ -1,0 +1,157 @@
+---
+title: 'Wallet Integration'
+description: 'Connect your Web3 wallet to Space Rocks'
+---
+
+## Supported Wallets
+
+Space Rocks supports all major Web3 wallets:
+
+<CardGroup cols={3}>
+  <Card title="MetaMask" icon="fox">
+    Most popular browser extension wallet
+  </Card>
+  <Card title="WalletConnect" icon="mobile">
+    Connect any mobile wallet
+  </Card>
+  <Card title="Coinbase Wallet" icon="wallet">
+    Integrated Coinbase experience
+  </Card>
+  <Card title="Trust Wallet" icon="shield">
+    Mobile-first wallet solution
+  </Card>
+  <Card title="Ledger" icon="usb">
+    Hardware wallet security
+  </Card>
+  <Card title="Rainbow" icon="rainbow">
+    Beautiful mobile wallet
+  </Card>
+</CardGroup>
+
+## Setup Guide
+
+### MetaMask Setup
+
+<Steps>
+  <Step title="Install MetaMask">
+    Download from [metamask.io](https://metamask.io) or your mobile app store
+  </Step>
+  
+  <Step title="Create Wallet">
+    Follow the setup wizard to create a new wallet or import existing one
+  </Step>
+  
+  <Step title="Secure Your Wallet">
+    Write down your seed phrase and store it securely offline
+  </Step>
+  
+  <Step title="Add Networks">
+    Add Polygon, Base, or other supported networks to MetaMask
+  </Step>
+  
+  <Step title="Connect to Space Rocks">
+    Open Space Rocks app and tap "Connect Wallet" → Select MetaMask
+  </Step>
+</Steps>
+
+### Adding Networks
+
+Add these networks to your wallet:
+
+<Tabs>
+  <Tab title="Polygon">
+    ```
+    Network Name: Polygon Mainnet
+    RPC URL: https://polygon-rpc.com
+    Chain ID: 137
+    Currency Symbol: MATIC
+    Block Explorer: https://polygonscan.com
+    ```
+  </Tab>
+  
+  <Tab title="Base">
+    ```
+    Network Name: Base
+    RPC URL: https://mainnet.base.org
+    Chain ID: 8453
+    Currency Symbol: ETH
+    Block Explorer: https://basescan.org
+    ```
+  </Tab>
+  
+  <Tab title="BSC">
+    ```
+    Network Name: BNB Smart Chain
+    RPC URL: https://bsc-dataseed.binance.org
+    Chain ID: 56
+    Currency Symbol: BNB
+    Block Explorer: https://bscscan.com
+    ```
+  </Tab>
+</Tabs>
+
+## Connecting Your Wallet
+
+<Steps>
+  <Step title="Open App">
+    Launch Space Rocks and navigate to Settings or Profile
+  </Step>
+  
+  <Step title="Tap Connect Wallet">
+    Select "Connect Wallet" button
+  </Step>
+  
+  <Step title="Choose Wallet">
+    Select your preferred wallet from the list
+  </Step>
+  
+  <Step title="Approve Connection">
+    Approve the connection request in your wallet
+  </Step>
+  
+  <Step title="Verify Connection">
+    Your wallet address will appear in the app
+  </Step>
+</Steps>
+
+## Security Best Practices
+
+<Warning>
+  **Never share your:**
+  - Seed phrase / Recovery phrase
+  - Private keys
+  - Wallet passwords
+  
+  Space Rocks will NEVER ask for these!
+</Warning>
+
+### Wallet Security Tips
+
+- ✅ Use hardware wallets for large holdings
+- ✅ Enable biometric authentication
+- ✅ Keep software updated
+- ✅ Use strong, unique passwords
+- ✅ Enable 2FA where available
+- ✅ Verify all transactions before signing
+- ❌ Never screenshot seed phrases
+- ❌ Don't store seeds digitally
+- ❌ Don't share wallet details publicly
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Mint Your First NFT"
+    icon="gem"
+    href="/nft/minting-process"
+  >
+    Convert rocks to NFTs
+  </Card>
+  <Card
+    title="Marketplace"
+    icon="store"
+    href="/nft/marketplace"
+  >
+    Trade NFTs with others
+  </Card>
+</CardGroup>

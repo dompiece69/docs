@@ -1,0 +1,83 @@
+---
+title: 'Geolocation API'
+description: 'Access location-based features and rock spawn data'
+---
+
+## Geolocation API
+
+The Geolocation API provides access to rock spawn locations, proximity detection, and location-based features.
+
+## Get Nearby Rocks
+
+```javascript
+GET /api/v1/rocks/nearby
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| latitude | float | Yes | User's latitude |
+| longitude | float | Yes | User's longitude |
+| radius | integer | No | Search radius in meters (default: 500) |
+| rarity | string | No | Filter by rarity (common, rare, epic, etc.) |
+
+**Example Request:**
+
+```javascript
+const response = await fetch('https://api.spacerocks.game/v1/rocks/nearby', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    latitude: 40.7128,
+    longitude: -74.0060,
+    radius: 1000
+  })
+});
+
+const rocks = await response.json();
+```
+
+**Example Response:**
+
+```json
+{
+  "success": true,
+  "count": 5,
+  "rocks": [
+    {
+      "id": "rock_abc123",
+      "rarity": "rare",
+      "element": "fire",
+      "power": 250,
+      "location": {
+        "latitude": 40.7129,
+        "longitude": -74.0061,
+        "name": "Central Park"
+      },
+      "distance": 150
+    }
+  ]
+}
+```
+
+## Check Collection Eligibility
+
+```javascript
+POST /api/v1/rocks/can-collect
+```
+
+Verify if a user can collect a specific rock.
+
+## Next Steps
+
+<Card
+  title="API Reference"
+  icon="book"
+  href="/api-reference/introduction"
+>
+  View complete API documentation
+</Card>

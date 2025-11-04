@@ -1,0 +1,150 @@
+---
+title: 'Rocks API'
+description: 'Manage rock collection and data'
+---
+
+## Rocks Endpoints
+
+The Rocks API provides access to rock data, collection, and management.
+
+## Get Nearby Rocks
+
+```http
+POST /api/v1/rocks/nearby
+```
+
+Find rocks near a specific location.
+
+### Request Body
+
+```json
+{
+  "latitude": 40.7128,
+  "longitude": -74.0060,
+  "radius": 1000,
+  "rarity": "rare",
+  "element": "fire"
+}
+```
+
+### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| latitude | float | Yes | Latitude coordinate |
+| longitude | float | Yes | Longitude coordinate |
+| radius | integer | No | Search radius in meters (default: 500, max: 5000) |
+| rarity | string | No | Filter by rarity (common, uncommon, rare, epic, legendary, mythic) |
+| element | string | No | Filter by element (fire, water, earth, air, cosmic) |
+
+### Response
+
+```json
+{
+  "success": true,
+  "count": 5,
+  "rocks": [
+    {
+      "id": "rock_abc123",
+      "rarity": "rare",
+      "element": "fire",
+      "power": 250,
+      "location": {
+        "latitude": 40.7129,
+        "longitude": -74.0061,
+        "name": "Central Park"
+      },
+      "distance": 150,
+      "collectable": true
+    }
+  ]
+}
+```
+
+## Collect Rock
+
+```http
+POST /api/v1/rocks/collect
+```
+
+Collect a rock at the user's current location.
+
+### Request Body
+
+```json
+{
+  "rock_id": "rock_abc123",
+  "latitude": 40.7129,
+  "longitude": -74.0061
+}
+```
+
+### Response
+
+```json
+{
+  "success": true,
+  "rock": {
+    "id": "rock_abc123",
+    "rarity": "rare",
+    "element": "fire",
+    "power": 250,
+    "collected_at": "2025-11-04T12:00:00Z"
+  },
+  "rewards": {
+    "coins": 50,
+    "experience": 100
+  }
+}
+```
+
+## Get Rock Details
+
+```http
+GET /api/v1/rocks/:id
+```
+
+Get detailed information about a specific rock.
+
+### Response
+
+```json
+{
+  "success": true,
+  "rock": {
+    "id": "rock_abc123",
+    "rarity": "rare",
+    "element": "fire",
+    "power": 250,
+    "traits": ["shiny"],
+    "location": {
+      "name": "Central Park",
+      "city": "New York",
+      "country": "USA"
+    },
+    "metadata": {
+      "spawn_time": "2025-11-04T10:00:00Z",
+      "expires_at": "2025-11-04T22:00:00Z"
+    }
+  }
+}
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="NFTs API"
+    icon="gem"
+    href="/api-reference/endpoints/nfts"
+  >
+    Mint and manage NFTs
+  </Card>
+  <Card
+    title="Users API"
+    icon="user"
+    href="/api-reference/endpoints/users"
+  >
+    User profiles and inventory
+  </Card>
+</CardGroup>

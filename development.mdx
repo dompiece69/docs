@@ -1,94 +1,205 @@
 ---
-title: 'Development'
-description: 'Preview changes locally to update your docs'
+title: 'Development Guide'
+description: 'Build with Space Rocks APIs and SDKs'
 ---
 
-<Info>
-  **Prerequisites**:
-  - Node.js version 19 or higher
-  - A docs repository with a `docs.json` file
-</Info>
+## Developer Resources
 
-Follow these steps to install and run Mintlify on your operating system.
+Welcome to the Space Rocks developer documentation. Build integrations, tools, and applications using our APIs and SDKs.
+
+## Quick Start
 
 <Steps>
-<Step title="Install the Mintlify CLI">
-
-```bash
-npm i -g mint
-```
-</Step>
-
-<Step title="Preview locally">
-
-Navigate to your docs directory where your `docs.json` file is located, and run the following command:
-
-```bash
-mint dev
-```
-
-A local preview of your documentation will be available at `http://localhost:3000`.
-
-</Step>
+  <Step title="Get API Key">
+    Register at [developer.spacerocks.game](https://developer.spacerocks.game) to get your API key
+  </Step>
+  
+  <Step title="Choose SDK">
+    Select the SDK for your platform (JavaScript, Python, Unity, etc.)
+  </Step>
+  
+  <Step title="Install SDK">
+    Install via package manager or download directly
+  </Step>
+  
+  <Step title="Authenticate">
+    Initialize SDK with your API key
+  </Step>
+  
+  <Step title="Start Building">
+    Make your first API call
+  </Step>
 </Steps>
 
-## Custom ports
+## Available SDKs
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. For example, to run Mintlify on port 3333, use this command:
+<CardGroup cols={3}>
+  <Card title="JavaScript/TypeScript" icon="js" href="/developers/mobile-sdk">
+    For web and Node.js applications
+  </Card>
+  <Card title="Python" icon="python" href="/developers/mobile-sdk">
+    For backend services and data analysis
+  </Card>
+  <Card title="Unity" icon="gamepad" href="/developers/mobile-sdk">
+    For game integrations
+  </Card>
+  <Card title="React Native" icon="mobile" href="/developers/mobile-sdk">
+    For mobile app development
+  </Card>
+  <Card title="Swift" icon="apple" href="/developers/mobile-sdk">
+    For iOS native apps
+  </Card>
+  <Card title="Kotlin" icon="android" href="/developers/mobile-sdk">
+    For Android native apps
+  </Card>
+</CardGroup>
 
-```bash
-mint dev --port 3333
-```
-
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
-
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
-
-## Mintlify versions
-
-Please note that each CLI release is associated with a specific version of Mintlify. If your local preview does not align with the production version, please update the CLI:
-
-```bash
-npm mint update
-```
-
-## Validating links
-
-The CLI can assist with validating links in your documentation. To identify any broken links, use the following command:
-
-```bash
-mint broken-links
-```
-
-## Deployment
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" alt="Screenshot of a deployment confirmation message that says All checks have passed." style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
+## Core Features
 
 <AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of the CLI: `npm remove -g mint`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall the CLI: `npm i -g mint`
+  <Accordion title="Geolocation API" icon="location-dot">
+    Access rock spawn data, location information, and proximity detection
   </Accordion>
-
-  <Accordion title="Issue: Encountering an unknown error">
   
-    Solution: Go to the root of your device and delete the `~/.mintlify` folder. Then run `mint dev` again.
+  <Accordion title="NFT Integration" icon="gem">
+    Mint, transfer, and manage NFTs programmatically
+  </Accordion>
+  
+  <Accordion title="User Management" icon="user">
+    Handle authentication, profiles, and inventory
+  </Accordion>
+  
+  <Accordion title="Marketplace API" icon="store">
+    List, buy, and sell NFTs programmatically
+  </Accordion>
+  
+  <Accordion title="Webhooks" icon="bell">
+    Receive real-time notifications for events
   </Accordion>
 </AccordionGroup>
 
-Curious about what changed in the latest CLI version? Check out the [CLI changelog](https://www.npmjs.com/package/mintlify?activeTab=versions).
+## Example: Fetch Nearby Rocks
+
+<Tabs>
+  <Tab title="JavaScript">
+    ```javascript
+    import { SpaceRocksSDK } from '@spacerocks/sdk';
+
+    const sdk = new SpaceRocksSDK({
+      apiKey: 'your_api_key_here'
+    });
+
+    // Get rocks near a location
+    const rocks = await sdk.rocks.getNearby({
+      latitude: 40.7128,
+      longitude: -74.0060,
+      radius: 1000 // meters
+    });
+
+    console.log(`Found ${rocks.length} rocks nearby`);
+    ```
+  </Tab>
+  
+  <Tab title="Python">
+    ```python
+    from spacerocks import SpaceRocksSDK
+
+    sdk = SpaceRocksSDK(api_key='your_api_key_here')
+
+    # Get rocks near a location
+    rocks = sdk.rocks.get_nearby(
+        latitude=40.7128,
+        longitude=-74.0060,
+        radius=1000  # meters
+    )
+
+    print(f"Found {len(rocks)} rocks nearby")
+    ```
+  </Tab>
+  
+  <Tab title="cURL">
+    ```bash
+    curl -X GET "https://api.spacerocks.game/v1/rocks/nearby" \
+      -H "Authorization: Bearer your_api_key_here" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "latitude": 40.7128,
+        "longitude": -74.0060,
+        "radius": 1000
+      }'
+    ```
+  </Tab>
+</Tabs>
+
+## Authentication
+
+All API requests require authentication:
+
+```javascript
+// Header-based authentication
+headers: {
+  'Authorization': 'Bearer YOUR_API_KEY',
+  'Content-Type': 'application/json'
+}
+```
+
+## Rate Limits
+
+| Tier | Requests/Minute | Requests/Day |
+|------|----------------|--------------|
+| Free | 60 | 10,000 |
+| Developer | 300 | 100,000 |
+| Business | 1,000 | 1,000,000 |
+| Enterprise | Custom | Custom |
+
+## Developer Resources
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    Complete API documentation
+  </Card>
+  <Card
+    title="Mobile SDK"
+    icon="mobile"
+    href="/developers/mobile-sdk"
+  >
+    Mobile development guide
+  </Card>
+  <Card
+    title="Web3 Integration"
+    icon="ethereum"
+    href="/developers/web3-integration"
+  >
+    Blockchain integration guide
+  </Card>
+  <Card
+    title="Geolocation API"
+    icon="map"
+    href="/developers/geolocation-api"
+  >
+    Location services documentation
+  </Card>
+</CardGroup>
+
+## Support
+
+Need help? We're here for you:
+
+- **Discord**: [discord.gg/spacerocks-dev](https://discord.gg/spacerocks-dev)
+- **Email**: developers@spacerocks.game
+- **GitHub**: [github.com/spacerocks](https://github.com/spacerocks)
+- **Stack Overflow**: Tag `spacerocks`
+
+## Next Steps
+
+<Card
+  title="Get Started with API"
+  icon="rocket"
+  href="/api-reference/introduction"
+>
+  Dive into the API documentation
+</Card>

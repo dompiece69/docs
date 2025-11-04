@@ -1,0 +1,129 @@
+---
+title: 'NFTs API'
+description: 'Mint and manage NFTs'
+---
+
+## NFTs Endpoints
+
+The NFTs API provides functionality for minting, transferring, and managing NFTs.
+
+## Mint NFT
+
+```http
+POST /api/v1/nfts/mint
+```
+
+Mint a rock as an NFT on the blockchain.
+
+### Request Body
+
+```json
+{
+  "rock_id": "rock_abc123",
+  "blockchain": "polygon",
+  "wallet_address": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb"
+}
+```
+
+### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| rock_id | string | Yes | ID of the rock to mint |
+| blockchain | string | Yes | Target blockchain (polygon, base, ethereum, bsc) |
+| wallet_address | string | Yes | Recipient wallet address |
+
+### Response
+
+```json
+{
+  "success": true,
+  "nft": {
+    "token_id": 12345,
+    "contract_address": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "blockchain": "polygon",
+    "transaction_hash": "0xabc123...",
+    "metadata_uri": "ipfs://QmX..."
+  }
+}
+```
+
+## Get User NFTs
+
+```http
+GET /api/v1/nfts/user/:wallet_address
+```
+
+Get all NFTs owned by a wallet address.
+
+### Response
+
+```json
+{
+  "success": true,
+  "count": 10,
+  "nfts": [
+    {
+      "token_id": 12345,
+      "rarity": "legendary",
+      "element": "fire",
+      "power": 750,
+      "staked": false,
+      "listed_for_sale": false
+    }
+  ]
+}
+```
+
+## Get NFT Details
+
+```http
+GET /api/v1/nfts/:token_id
+```
+
+Get detailed information about a specific NFT.
+
+### Response
+
+```json
+{
+  "success": true,
+  "nft": {
+    "token_id": 12345,
+    "owner": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "rarity": "legendary",
+    "element": "fire",
+    "power": 750,
+    "metadata": {
+      "name": "Legendary Fire Rock #12345",
+      "description": "A legendary fire rock collected at the Eiffel Tower",
+      "image": "ipfs://QmX...",
+      "attributes": [...]
+    },
+    "staking": {
+      "staked": true,
+      "rewards_earned": "1250.50",
+      "apy": "8%"
+    }
+  }
+}
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Users API"
+    icon="user"
+    href="/api-reference/endpoints/users"
+  >
+    User profiles and inventory
+  </Card>
+  <Card
+    title="Rocks API"
+    icon="gem"
+    href="/api-reference/endpoints/rocks"
+  >
+    Rock collection API
+  </Card>
+</CardGroup>

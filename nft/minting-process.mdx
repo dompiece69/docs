@@ -1,0 +1,487 @@
+---
+title: 'NFT Minting Process'
+description: 'Transform your collected rocks into blockchain-backed NFTs'
+---
+
+## What is NFT Minting?
+
+Minting converts your in-game rocks into Non-Fungible Tokens (NFTs) on the blockchain, giving you true ownership and the ability to trade them on decentralized marketplaces.
+
+## Why Mint Your Rocks?
+
+<CardGroup cols={2}>
+  <Card title="True Ownership" icon="shield">
+    Your NFTs are stored on the blockchain, giving you complete control and ownership
+  </Card>
+  <Card title="Tradeable Assets" icon="exchange">
+    Sell or trade your rocks on our marketplace or external NFT platforms
+  </Card>
+  <Card title="Meme Coin Backing" icon="coins">
+    Each NFT is backed by our native meme coin, providing intrinsic value
+  </Card>
+  <Card title="Passive Income" icon="chart-line">
+    Stake your NFTs to earn continuous rewards
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+Before minting your first NFT, you'll need:
+
+<Steps>
+  <Step title="Web3 Wallet">
+    Install and set up a compatible wallet like MetaMask, Trust Wallet, or WalletConnect
+  </Step>
+  
+  <Step title="Cryptocurrency">
+    Have enough cryptocurrency to cover gas fees (typically $2-10 depending on network congestion)
+  </Step>
+  
+  <Step title="Connected Wallet">
+    Connect your wallet to the Space Rocks app
+  </Step>
+  
+  <Step title="Collected Rock">
+    Have at least one rock in your inventory to mint
+  </Step>
+</Steps>
+
+## Supported Blockchains
+
+Space Rocks supports multiple blockchain networks:
+
+| Blockchain | Gas Fees | Speed | Best For |
+|-----------|----------|-------|----------|
+| **Ethereum** | High ($5-50) | Medium | High-value NFTs |
+| **Polygon** | Very Low ($0.01-0.50) | Fast | Most users |
+| **Binance Smart Chain** | Low ($0.50-2) | Fast | BSC users |
+| **Arbitrum** | Low ($0.10-1) | Fast | Ethereum users |
+| **Base** | Very Low ($0.01-0.30) | Very Fast | Recommended |
+
+<Note>
+  We recommend using **Polygon** or **Base** for most users due to low fees and fast transaction times.
+</Note>
+
+## Minting Process
+
+### Step-by-Step Guide
+
+<Steps>
+  <Step title="Select Rock">
+    Go to your inventory and tap the rock you want to mint. Review its properties and estimated value.
+  </Step>
+  
+  <Step title="Choose Blockchain">
+    Select which blockchain network to mint on. Consider gas fees and your intended use.
+  </Step>
+  
+  <Step title="Review Details">
+    Check the minting summary:
+    - Rock properties and metadata
+    - Estimated gas fees
+    - Meme coin backing amount
+    - Total cost
+  </Step>
+  
+  <Step title="Confirm Transaction">
+    Tap "Mint NFT" and approve the transaction in your wallet. This may take a few seconds.
+  </Step>
+  
+  <Step title="Wait for Confirmation">
+    The blockchain processes your transaction (30 seconds to 5 minutes depending on network).
+  </Step>
+  
+  <Step title="Receive NFT">
+    Once confirmed, your NFT appears in your wallet and can be viewed on blockchain explorers.
+  </Step>
+</Steps>
+
+### Minting Costs
+
+The total cost to mint includes:
+
+<AccordionGroup>
+  <Accordion title="Gas Fees" icon="gas-pump">
+    Blockchain transaction fees (varies by network):
+    - **Polygon**: $0.01 - $0.50
+    - **Base**: $0.01 - $0.30
+    - **BSC**: $0.50 - $2
+    - **Arbitrum**: $0.10 - $1
+    - **Ethereum**: $5 - $50
+  </Accordion>
+  
+  <Accordion title="Platform Fee" icon="building">
+    Space Rocks charges a small minting fee:
+    - **Common**: 10 coins
+    - **Uncommon**: 25 coins
+    - **Rare**: 50 coins
+    - **Epic**: 100 coins
+    - **Legendary**: 250 coins
+    - **Mythic**: 500 coins
+  </Accordion>
+  
+  <Accordion title="Meme Coin Backing" icon="coins">
+    Each NFT is backed by meme coins:
+    - **Common**: 10 coins locked
+    - **Uncommon**: 50 coins locked
+    - **Rare**: 200 coins locked
+    - **Epic**: 1,000 coins locked
+    - **Legendary**: 5,000 coins locked
+    - **Mythic**: 25,000 coins locked
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Meme coins used for backing are locked in the NFT smart contract. You can retrieve them by burning the NFT.
+</Warning>
+
+## NFT Metadata
+
+Each minted rock NFT includes comprehensive metadata:
+
+### On-Chain Data
+
+Stored permanently on the blockchain:
+
+- **Token ID**: Unique identifier
+- **Contract Address**: Smart contract location
+- **Owner Address**: Current owner's wallet
+- **Minting Timestamp**: When it was minted
+- **Blockchain**: Which network it's on
+
+### Off-Chain Metadata
+
+Stored on IPFS (decentralized storage):
+
+```json
+{
+  "name": "Cosmic Fire Rock #1234",
+  "description": "A legendary fire-element rock collected at the Eiffel Tower",
+  "image": "ipfs://QmX...",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Element",
+      "value": "Fire"
+    },
+    {
+      "trait_type": "Power Level",
+      "value": 750
+    },
+    {
+      "trait_type": "Location",
+      "value": "Eiffel Tower, Paris, France"
+    },
+    {
+      "trait_type": "Collection Date",
+      "value": "2025-11-04"
+    },
+    {
+      "trait_type": "Special Trait",
+      "value": "Shiny"
+    }
+  ],
+  "properties": {
+    "evolution_tier": 5,
+    "staking_apy": "8%",
+    "backed_coins": 5000
+  }
+}
+```
+
+## Batch Minting
+
+Mint multiple rocks at once to save on gas fees:
+
+### How It Works
+
+<Steps>
+  <Step title="Select Multiple Rocks">
+    Choose up to 10 rocks from your inventory to mint together
+  </Step>
+  
+  <Step title="Review Batch">
+    See total costs and estimated gas savings (typically 40-60% cheaper per NFT)
+  </Step>
+  
+  <Step title="Confirm Transaction">
+    Approve one transaction that mints all selected rocks
+  </Step>
+  
+  <Step title="Receive All NFTs">
+    All NFTs are minted in a single transaction
+  </Step>
+</Steps>
+
+### Batch Minting Benefits
+
+- **Gas Savings**: 40-60% cheaper per NFT
+- **Time Efficient**: One transaction instead of many
+- **Bulk Discounts**: 10% off platform fees
+- **Priority Processing**: Faster confirmation times
+
+<Tip>
+  Save your rocks and batch mint 10 at a time to maximize savings!
+</Tip>
+
+## Lazy Minting
+
+Delay blockchain minting until sale:
+
+### What is Lazy Minting?
+
+- List rocks on marketplace without minting
+- Buyer pays gas fees when purchasing
+- You save upfront costs
+- NFT is minted upon first sale
+
+### When to Use Lazy Minting
+
+<CardGroup cols={2}>
+  <Card title="Uncertain Value" icon="question">
+    When you're not sure if the rock will sell
+  </Card>
+  <Card title="High Gas Fees" icon="gas-pump">
+    When network fees are temporarily high
+  </Card>
+  <Card title="Bulk Listings" icon="list">
+    When listing many rocks at once
+  </Card>
+  <Card title="Testing Market" icon="chart-line">
+    When gauging market interest
+  </Card>
+</CardGroup>
+
+## NFT Standards
+
+Space Rocks uses industry-standard NFT protocols:
+
+### ERC-721
+
+Our primary NFT standard:
+
+- **Standard**: ERC-721 (Ethereum standard)
+- **Compatibility**: Works with all major wallets and marketplaces
+- **Features**: Unique, non-fungible tokens
+- **Use Case**: Individual rock NFTs
+
+### ERC-1155
+
+For special collections:
+
+- **Standard**: ERC-1155 (Multi-token standard)
+- **Compatibility**: Advanced wallet support
+- **Features**: Batch transfers, lower gas fees
+- **Use Case**: Event rocks, limited editions
+
+## Smart Contract Details
+
+### Contract Features
+
+<AccordionGroup>
+  <Accordion title="Security" icon="shield">
+    - Audited by leading security firms
+    - Multi-sig wallet protection
+    - Upgradeable proxy pattern
+    - Emergency pause functionality
+  </Accordion>
+  
+  <Accordion title="Royalties" icon="percent">
+    - 5% creator royalty on secondary sales
+    - Automatic distribution to treasury
+    - Supports EIP-2981 royalty standard
+    - Enforced on compatible marketplaces
+  </Accordion>
+  
+  <Accordion title="Burning" icon="fire">
+    - Burn NFTs to retrieve backed coins
+    - Reduces total supply
+    - Increases scarcity
+    - Irreversible action
+  </Accordion>
+  
+  <Accordion title="Staking" icon="lock">
+    - Stake NFTs directly from contract
+    - Earn rewards automatically
+    - Unstake anytime (24hr cooldown)
+    - Compound rewards option
+  </Accordion>
+</AccordionGroup>
+
+### Contract Addresses
+
+<Tabs>
+  <Tab title="Polygon">
+    **Main Contract**: `0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb`
+    **Staking Contract**: `0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063`
+    **Marketplace**: `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174`
+  </Tab>
+  
+  <Tab title="Base">
+    **Main Contract**: `0x1234567890123456789012345678901234567890`
+    **Staking Contract**: `0x2345678901234567890123456789012345678901`
+    **Marketplace**: `0x3456789012345678901234567890123456789012`
+  </Tab>
+  
+  <Tab title="Ethereum">
+    **Main Contract**: `0x4567890123456789012345678901234567890123`
+    **Staking Contract**: `0x5678901234567890123456789012345678901234`
+    **Marketplace**: `0x6789012345678901234567890123456789012345`
+  </Tab>
+</Tabs>
+
+## Viewing Your NFTs
+
+### In-App Viewing
+
+- **Inventory Tab**: See all your minted NFTs
+- **3D Viewer**: Rotate and inspect your rocks
+- **AR Mode**: View rocks in augmented reality
+- **Gallery Mode**: Showcase your collection
+
+### External Platforms
+
+View your NFTs on popular platforms:
+
+<CardGroup cols={3}>
+  <Card title="OpenSea" icon="water" href="https://opensea.io">
+    Largest NFT marketplace
+  </Card>
+  <Card title="Rarible" icon="palette" href="https://rarible.com">
+    Community-owned marketplace
+  </Card>
+  <Card title="LooksRare" icon="eye" href="https://looksrare.org">
+    Rewards-based marketplace
+  </Card>
+</CardGroup>
+
+## Minting Strategies
+
+### When to Mint
+
+<Tip>
+  **Optimal Minting Times:**
+  - During low network congestion (weekends, late night)
+  - When gas prices are below average
+  - Before listing on marketplace
+  - After evolving to higher rarity
+  - During minting discount events
+</Tip>
+
+### What to Mint
+
+Prioritize minting:
+
+1. **Legendary and Mythic rocks** - Highest value
+2. **Shiny variants** - Collector's items
+3. **Landmark rocks** - Location significance
+4. **Event exclusives** - Limited availability
+5. **High power rocks** - Better stats
+6. **Complete sets** - Collection value
+
+### What Not to Mint
+
+Avoid minting:
+
+- Common rocks (unless batch minting)
+- Low power rocks
+- Rocks you plan to use as evolution fuel
+- Rocks during high gas fee periods
+- Rocks you're unsure about keeping
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Transaction Failed" icon="x">
+    **Causes:**
+    - Insufficient gas fees
+    - Network congestion
+    - Wallet not connected
+    
+    **Solutions:**
+    - Increase gas limit
+    - Try again later
+    - Reconnect wallet
+  </Accordion>
+  
+  <Accordion title="NFT Not Showing" icon="eye-slash">
+    **Causes:**
+    - Transaction still pending
+    - Wallet not synced
+    - Wrong network selected
+    
+    **Solutions:**
+    - Wait for confirmation
+    - Refresh wallet
+    - Switch to correct network
+  </Accordion>
+  
+  <Accordion title="High Gas Fees" icon="gas-pump">
+    **Causes:**
+    - Network congestion
+    - Wrong network selected
+    - Complex transaction
+    
+    **Solutions:**
+    - Use Polygon or Base
+    - Wait for lower fees
+    - Use batch minting
+  </Accordion>
+</AccordionGroup>
+
+## Security Best Practices
+
+<Warning>
+  **Important Security Tips:**
+  - Never share your seed phrase
+  - Always verify contract addresses
+  - Use hardware wallets for valuable NFTs
+  - Enable 2FA on your accounts
+  - Be cautious of phishing attempts
+</Warning>
+
+### Protecting Your NFTs
+
+- **Hardware Wallets**: Store valuable NFTs on Ledger or Trezor
+- **Multi-Sig Wallets**: Require multiple approvals for transfers
+- **Cold Storage**: Keep long-term holdings offline
+- **Regular Backups**: Backup wallet seed phrases securely
+- **Revoke Approvals**: Regularly check and revoke unnecessary contract approvals
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Wallet Integration"
+    icon="wallet"
+    href="/nft/wallet-integration"
+  >
+    Learn how to connect your wallet
+  </Card>
+  <Card
+    title="Marketplace"
+    icon="store"
+    href="/nft/marketplace"
+  >
+    Trade your minted NFTs
+  </Card>
+  <Card
+    title="Smart Contracts"
+    icon="file-contract"
+    href="/nft/smart-contracts"
+  >
+    Technical details about our contracts
+  </Card>
+  <Card
+    title="Staking"
+    icon="lock"
+    href="/tokenomics/rewards"
+  >
+    Earn rewards by staking NFTs
+  </Card>
+</CardGroup>
