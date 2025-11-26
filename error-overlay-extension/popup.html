@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    h3 {
+      margin-top: 0;
+      color: #1976d2;
+    }
+    p {
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .active {
+      background: #e8f5e8;
+      border: 1px solid #4caf50;
+      color: #2e7d32;
+    }
+    .inactive {
+      background: #ffebee;
+      border: 1px solid #f44336;
+      color: #c62828;
+    }
+    button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <h3>No-Code Error Helper</h3>
+  <p>This extension helps you understand and fix errors in no-code apps like Bubble, Adalo, and Glide.</p>
+
+  <div id="status" class="status inactive">
+    Extension is inactive. Navigate to a supported no-code app to activate.
+  </div>
+
+  <button onclick="checkStatus()">Check Status</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
