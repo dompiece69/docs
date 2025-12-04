@@ -1,0 +1,437 @@
+:root {
+  --primary-color: #8B4513;
+  --secondary-color: #D2691E;
+  --success-color: #228B22;
+  --warning-color: #FF8C00;
+  --danger-color: #DC143C;
+  --bg-color: #f5f3f0;
+  --card-bg: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+/* Navigation Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  background-color: var(--card-bg);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border: none;
+  background-color: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: var(--bg-color);
+}
+
+.tab-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Dashboard Styles */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.stat-card.alerts .stat-value {
+  color: var(--danger-color);
+}
+
+/* Alerts Section */
+.alerts-section {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.alerts-list {
+  margin-top: 20px;
+}
+
+.alert-item {
+  padding: 15px;
+  border-left: 4px solid;
+  margin-bottom: 10px;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+}
+
+.alert-item.high {
+  border-color: var(--danger-color);
+}
+
+.alert-item.medium {
+  border-color: var(--warning-color);
+}
+
+.alert-item.low {
+  border-color: var(--success-color);
+}
+
+.alert-time {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Forms */
+.form-container {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: var(--text-secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-primary);
+}
+
+/* Batch Cards */
+.batches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.batch-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.batch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.batch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.batch-strain {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.batch-stage {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.stage-inoculation {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.stage-colonization {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.stage-fruiting {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.stage-harvest_ready {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.batch-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.batch-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.batch-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Environment Styles */
+.env-controls {
+  margin-bottom: 30px;
+}
+
+.env-controls select {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.env-current {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.env-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.env-card h4 {
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.env-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.chart-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  height: 400px;
+}
+
+.manual-entry {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Analytics */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.chart-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-card h3 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.metrics-table {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.metrics-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.metrics-table th,
+.metrics-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.metrics-table th {
+  background-color: var(--bg-color);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+/* WebSocket Status Indicator */
+.ws-status {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.ws-connected {
+  background-color: var(--success-color);
+}
+
+.ws-disconnected {
+  background-color: var(--danger-color);
+}

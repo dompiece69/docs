@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MycoManager - Smart Mushroom Cultivation</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🍄 MycoManager</h1>
+      <p>Smart Mushroom Cultivation Management</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" onclick="showTab('dashboard')">Dashboard</button>
+      <button class="tab-btn" onclick="showTab('batches')">Batches</button>
+      <button class="tab-btn" onclick="showTab('environment')">Environment</button>
+      <button class="tab-btn" onclick="showTab('analytics')">Analytics</button>
+    </nav>
+
+    <!-- Dashboard Tab -->
+    <div id="dashboard" class="tab-content active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Active Batches</h3>
+          <p class="stat-value" id="activeBatchCount">-</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Yield (This Month)</h3>
+          <p class="stat-value"><span id="monthlyYield">-</span> lbs</p>
+        </div>
+        <div class="stat-card alerts">
+          <h3>Active Alerts</h3>
+          <p class="stat-value" id="alertCount">-</p>
+        </div>
+        <div class="stat-card">
+          <h3>Avg Temperature</h3>
+          <p class="stat-value"><span id="avgTemp">-</span>°F</p>
+        </div>
+      </div>
+
+      <div class="alerts-section">
+        <h2>Recent Alerts</h2>
+        <div id="alertsList" class="alerts-list"></div>
+      </div>
+    </div>
+
+    <!-- Batches Tab -->
+    <div id="batches" class="tab-content">
+      <div class="actions">
+        <button class="btn-primary" onclick="showNewBatchForm()">+ New Batch</button>
+      </div>
+
+      <div id="newBatchForm" class="form-container hidden">
+        <h3>Create New Batch</h3>
+        <form onsubmit="createBatch(event)">
+          <div class="form-group">
+            <label>Mushroom Strain</label>
+            <select id="strain" required>
+              <option value="">Select strain...</option>
+              <option value="Oyster">Oyster (Pleurotus ostreatus)</option>
+              <option value="Shiitake">Shiitake (Lentinula edodes)</option>
+              <option value="Lions Mane">Lion's Mane (Hericium erinaceus)</option>
+              <option value="Reishi">Reishi (Ganoderma lucidum)</option>
+              <option value="Blue Oyster">Blue Oyster (Pleurotus columbinus)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Substrate Type</label>
+            <select id="substrate" required>
+              <option value="">Select substrate...</option>
+              <option value="Straw">Straw</option>
+              <option value="Sawdust">Sawdust</option>
+              <option value="Coffee grounds">Coffee grounds</option>
+              <option value="Grain spawn">Grain spawn</option>
+              <option value="Hardwood pellets">Hardwood pellets</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Expected Harvest Date</label>
+            <input type="date" id="expectedHarvest" required>
+          </div>
+          <div class="form-group">
+            <label>Notes</label>
+            <textarea id="notes" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Create Batch</button>
+            <button type="button" class="btn-secondary" onclick="hideNewBatchForm()">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="batchesList" class="batches-grid"></div>
+    </div>
+
+    <!-- Environment Tab -->
+    <div id="environment" class="tab-content">
+      <div class="env-controls">
+        <select id="envBatchSelect" onchange="loadEnvironmentData()">
+          <option value="">Select batch to monitor...</option>
+        </select>
+      </div>
+
+      <div class="env-current">
+        <div class="env-card">
+          <h4>Temperature</h4>
+          <p class="env-value"><span id="currentTemp">-</span>°F</p>
+        </div>
+        <div class="env-card">
+          <h4>Humidity</h4>
+          <p class="env-value"><span id="currentHumidity">-</span>%</p>
+        </div>
+        <div class="env-card">
+          <h4>CO2 Level</h4>
+          <p class="env-value"><span id="currentCO2">-</span> ppm</p>
+        </div>
+        <div class="env-card">
+          <h4>Light Hours</h4>
+          <p class="env-value"><span id="currentLight">-</span> hrs</p>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="envChart"></canvas>
+      </div>
+
+      <div class="manual-entry">
+        <h3>Manual Environment Entry</h3>
+        <form onsubmit="logEnvironment(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Temperature (°F)</label>
+              <input type="number" id="manualTemp" step="0.1" required>
+            </div>
+            <div class="form-group">
+              <label>Humidity (%)</label>
+              <input type="number" id="manualHumidity" step="0.1" required>
+            </div>
+            <div class="form-group">
+              <label>CO2 (ppm)</label>
+              <input type="number" id="manualCO2" required>
+            </div>
+            <div class="form-group">
+              <label>Light Hours</label>
+              <input type="number" id="manualLight" step="0.1" required>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Log Data</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Analytics Tab -->
+    <div id="analytics" class="tab-content">
+      <div class="analytics-grid">
+        <div class="chart-card">
+          <h3>Yield by Strain</h3>
+          <canvas id="yieldChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Stage Distribution</h3>
+          <canvas id="stageChart"></canvas>
+        </div>
+      </div>
+
+      <div class="metrics-table">
+        <h3>Performance Metrics</h3>
+        <table id="metricsTable">
+          <thead>
+            <tr>
+              <th>Strain</th>
+              <th>Batches</th>
+              <th>Avg Yield (lbs)</th>
+              <th>Success Rate</th>
+            </tr>
+          </thead>
+          <tbody id="metricsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
